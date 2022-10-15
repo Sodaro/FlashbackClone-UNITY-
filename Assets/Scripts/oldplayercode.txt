@@ -1,0 +1,65 @@
+    public bool CanClimbDown()
+	{
+        //Vector3 startPos = transform.position;
+
+        //Vector3 grabPos, behindPos;
+        //bool grabTile, behindTile;
+
+        RaycastHit2D hit;
+        int layermask = 1;
+        hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, layermask);
+
+        if (!hit)
+            return false;
+
+        return hit.collider.gameObject == ledgeTilemap.gameObject;
+
+        //if (hit.collider.gameObject)
+
+
+        //if (facingDirection == 1) //1 == right, check collisions behind and grab tile is above start (in front of collision behind)
+        //{
+        //    grabPos = new Vector3(startPos.x - 0.5f, startPos.y - 0.5f, startPos.z);
+        //    behindPos = new Vector3(startPos.x - facingDirection, startPos.y - 0.5f, startPos.z);
+        //    grabTile = ledgeTilemap.HasWallInDirection(grabPos, Utilities.Direction.DOWN, ledgeHighLight, highlightTilemap);
+        //    behindTile = ledgeTilemap.HasWallInDirection(behindPos, Utilities.Direction.DOWN, ledgeHighLight, highlightTilemap);
+        //}
+        //else
+        //{
+        //    grabPos = new Vector3(startPos.x + 0.5f, startPos.y - 0.5f, startPos.z);
+        //    behindPos = new Vector3(startPos.x - facingDirection, startPos.y - 0.5f, startPos.z);
+        //    grabTile = ledgeTilemap.HasWallInDirection(grabPos, Utilities.Direction.DOWN, ledgeHighLight, highlightTilemap);
+        //    behindTile = ledgeTilemap.HasWallInDirection(behindPos, Utilities.Direction.DOWN, ledgeHighLight, highlightTilemap);
+        //}
+        //return behindTile == false && grabTile == true;
+    }
+    public bool CanClimbLedge()
+    {
+        RaycastHit2D hit;
+        int layermask = 1;
+        hit = Physics2D.Raycast(transform.position, Vector2.up, 1f, layermask);
+
+        if (!hit)
+            return false;
+
+        return hit.collider.gameObject == ledgeTilemap.gameObject;
+
+
+        //Vector3 startPos = transform.position;
+
+        //Vector3 grabPos = new Vector3(startPos.x, startPos.y, startPos.z);
+        //Vector3 behindPos = new Vector3(startPos.x - facingDirection, startPos.y, startPos.z);
+        //bool grabTile, behindTile;
+
+        //if (facingDirection == 1) //1 == right, check collisions behind and grab tile is above start (in front of collision behind)
+        //{
+        //    grabTile = ledgeTilemap.HasWallInDirection(grabPos, Utilities.Direction.UP, ledgeHighLight, highlightTilemap);
+        //    behindTile = ledgeTilemap.HasWallInDirection(behindPos, Utilities.Direction.UP, ledgeHighLight, highlightTilemap);
+        //}
+        //else
+        //{
+        //    grabTile = ledgeTilemap.HasWallInDirection(grabPos, Utilities.Direction.UP, ledgeHighLight, highlightTilemap);
+        //    behindTile = ledgeTilemap.HasWallInDirection(behindPos, Utilities.Direction.UP, ledgeHighLight, highlightTilemap);
+        //}
+        //return behindTile == false && grabTile == true;
+    }
